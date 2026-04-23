@@ -1,0 +1,234 @@
+---
+import '../../styles/global.css';
+import { bunnyImage } from '../../lib/bunny-cdn';
+import HashScrollInit from '../../components/HashScrollInit.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const heroBg = '/images/case-studies/drosefog/bg-2.jpg';
+const logoFinal = bunnyImage('/wp-content/uploads/2025/08/Times10-Logo-2025-2.png', {
+	pullZone: 'wordpress',
+	width: 225,
+	quality: 85
+});
+
+const challengeImage = '/images/case-studies/drosefog/FOG-ROSE-EVENT-43.png';
+
+const challenge = "Launch the Fear of God Athletics II Basketball D Rose in a way that honored Derrick Rose's legacy, resonated with Chicago culture, and aligned with Fear of God's refined, minimal aesthetic, while cutting through a crowded basketball and sneaker landscape.";
+const whatWeDid = "Designed and executed a full event featuring a museum-style experience celebrating Derrick Rose's legacy with adidas and the launch of the Fear of God Athletics II Basketball D Rose shoe. Blended Chicago culture with Fear of God's minimal, luxury-driven aesthetic through spatial storytelling and design.";
+
+const keyInitiatives = [
+	{ title: "Creative Event Concepting", body: "Immersive, museum-style experience celebrating Derrick Rose's legacy and the new shoe." },
+	{ title: "Custom Branded Touchpoints", body: "Hero displays, archival installations, branded flooring, lighting, and gifting." },
+	{ title: "Celebrity & VIP Management", body: "Coordinated Rose's arrival and seamless flow for talent, media, and VIPs." },
+	{ title: "Interactive Fan Experiences", body: "Mirror photo installations, archival displays, and storytelling touchpoints." },
+	{ title: "Influencer & Media", body: "Hosted key influencers and tastemakers; supported organic content and press." },
+	{ title: "On-Site Content Capture", body: "Photo and social capture across talent, product, and experience." }
+];
+
+const fourColImages = [
+	'/images/case-studies/drosefog/FOG-ROSE-EVENT-7.png',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-Step&Repeat-120425-49.jpg',
+	'/images/case-studies/drosefog/FOG-ROSE-EVENT-10 (1).jpg',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-3.jpg',
+	'/images/case-studies/drosefog/FOG-ROSE-EVENT-47.jpg',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-14.jpg'
+];
+
+const threeColImages = [
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-16.jpg',
+	'/images/case-studies/drosefog/FOG-ROSE-EVENT-3.jpg',
+	'/images/case-studies/drosefog/fog-1.jpg',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-6.jpg',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-8.jpg',
+	'/images/case-studies/drosefog/adidas-FOG-DRose-120425-1.png'
+];
+
+const socialPosts = [
+	{ src: '/images/case-studies/drosefog/Pasted Graphic.png', href: 'https://www.instagram.com/p/DSBFeSoAf9D/?hl=en&img_index=1' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 1.png', href: 'https://www.instagram.com/p/DR44Xu-Ecsr/?utm_source=ig_web_copy_link&img_index=1' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 3.png', href: 'https://www.instagram.com/p/DSBFeSoAf9D/?hl=en&img_index=2' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 4.png', href: 'https://www.instagram.com/p/DSBGxTJgVk1/?igsh=NTc4MTIwNjQ2YQ==&img_index=1' }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Adidas FOG II Basketball D Rose - Case Study | times10</title>
+	</head>
+	<body class="font-sans overflow-x-hidden bg-[#fdfffd]">
+		<Navigation />
+
+		<section
+			id="fog-drose-case-study-title"
+			class="w-full h-dvh snap-start snap-always bg-no-repeat flex items-center justify-center relative bg-black"
+			style={`background-image: url('${heroBg}'); background-position: center center; background-size: cover;`}
+		>
+			<div
+				id="fog-drose-case-study-title-overlay"
+				class="absolute inset-0 bg-black transition-opacity duration-1000 ease-in-out"
+			></div>
+		</section>
+
+		<script>
+			(function() {
+				const overlay = document.getElementById('fog-drose-case-study-title-overlay');
+				if (!overlay) return;
+
+				const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+				if (prefersReducedMotion) {
+					overlay.style.opacity = '0';
+					return;
+				}
+
+				const section = document.getElementById('fog-drose-case-study-title');
+				if (!section) return;
+
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							overlay.style.opacity = '0';
+						} else {
+							overlay.style.opacity = '1';
+						}
+					});
+				}, { threshold: 0.1, rootMargin: '0px' });
+
+				observer.observe(section);
+			})();
+		</script>
+
+		<section id="fog-drose-case-study" class="w-full h-dvh max-h-dvh snap-start snap-always flex flex-col overflow-hidden box-border bg-[#f4f4f0] lg:bg-transparent p-0 md:p-4 lg:p-8">
+			<div class="hidden lg:grid w-full flex-1 min-h-0 grid-cols-2 gap-2 md:gap-4 lg:gap-8">
+				<div class="relative overflow-hidden flex-1 min-h-0">
+					<img
+						src={challengeImage}
+						alt="adidas FOG II Basketball D Rose launch event"
+						class="w-full h-full object-cover"
+						loading="eager"
+						decoding="async"
+					/>
+				</div>
+				<div class="flex flex-1 min-h-0 flex-col justify-center overflow-y-auto">
+					<div class="space-y-6 max-w-[650px] mx-auto px-4">
+						<div>
+							<h3 class="text-[#d63a2e] xl:text-[32px] lg:text-[24px] md:text-[20px] font-semibold leading-[32px] mb-4 text-left lowercase">challenge:</h3>
+							<p class="text-[#010101] font-aktiv-grotesk xl:text-[20px] lg:text-[15px] md:text-[13px] font-semibold leading-[28px] text-left">{challenge}</p>
+						</div>
+						<div>
+							<h3 class="text-[#d63a2e] xl:text-[32px] lg:text-[24px] md:text-[20px] font-semibold leading-[32px] mb-4 text-left lowercase">what we did:</h3>
+							<p class="text-[#010101] font-aktiv-grotesk xl:text-[20px] lg:text-[15px] md:text-[13px] font-semibold leading-[28px] text-left mb-4">{whatWeDid}</p>
+							<p class="text-[#010101] font-aktiv-grotesk xl:text-[20px] lg:text-[15px] md:text-[13px] font-bold leading-[28px] text-left mb-2 lowercase">key initiatives included:</p>
+							<ol class="text-[#010101] font-aktiv-grotesk xl:text-[18px] lg:text-[14px] md:text-[12px] leading-[24px] text-left space-y-2 list-none">
+								{keyInitiatives.map((item, index) => (
+									<li class="flex gap-2">
+										<span class="text-[#d63a2e] font-bold shrink-0">{index + 1}.</span>
+										<span><strong>{item.title}:</strong> {item.body}</span>
+									</li>
+								))}
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="lg:hidden flex flex-col h-full overflow-y-auto p-4 gap-6">
+				<img
+					src={challengeImage}
+					alt="adidas FOG II Basketball D Rose launch event"
+					class="w-full aspect-[4/3] object-cover rounded-2xl"
+					loading="eager"
+					decoding="async"
+				/>
+				<div>
+					<h3 class="text-[#d63a2e] text-[20px] font-semibold mb-2 lowercase">challenge:</h3>
+					<p class="text-[#010101] text-[14px] font-semibold leading-[22px]">{challenge}</p>
+				</div>
+				<div>
+					<h3 class="text-[#d63a2e] text-[20px] font-semibold mb-2 lowercase">what we did:</h3>
+					<p class="text-[#010101] text-[14px] font-semibold leading-[22px] mb-3">{whatWeDid}</p>
+					<p class="text-[#010101] text-[14px] font-bold mb-2 lowercase">key initiatives included:</p>
+					<ol class="text-[#010101] text-[13px] leading-[20px] space-y-2 list-none">
+						{keyInitiatives.map((item, index) => (
+							<li class="flex gap-2">
+								<span class="text-[#d63a2e] font-bold shrink-0">{index + 1}.</span>
+								<span><strong>{item.title}:</strong> {item.body}</span>
+							</li>
+						))}
+					</ol>
+				</div>
+			</div>
+		</section>
+
+		<section id="fog-drose-event-grid" class="w-full h-dvh max-h-dvh p-2 md:p-4 lg:p-8 snap-start snap-always flex flex-col overflow-hidden box-border">
+			<div class="flex-1 min-h-0 grid grid-cols-1 grid-rows-3 gap-2 sm:hidden">
+				{fourColImages.slice(0, 3).map((src) => (
+					<div class="relative overflow-hidden min-h-0 flex items-center justify-center">
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
+					</div>
+				))}
+			</div>
+			<div class="hidden sm:grid sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-2 md:gap-4 lg:gap-8 flex-1 min-h-0">
+				{fourColImages.map((src) => (
+					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section id="fog-drose-event-images" class="w-full h-dvh max-h-dvh p-2 md:p-4 lg:p-8 snap-start snap-always flex flex-col overflow-hidden box-border">
+			<div class="flex-1 min-h-0 grid grid-cols-1 grid-rows-3 gap-2 sm:hidden">
+				{threeColImages.slice(0, 3).map((src) => (
+					<div class="relative overflow-hidden min-h-0 flex items-center justify-center">
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
+					</div>
+				))}
+			</div>
+			<div class="hidden sm:grid sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-2 md:gap-4 lg:gap-8 flex-1 min-h-0">
+				{threeColImages.map((src) => (
+					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section id="fog-drose-social" class="w-full h-dvh max-h-dvh snap-start snap-always bg-[#f4f4f0] flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden">
+			<div class="w-full max-w-[1440px] flex flex-col items-center justify-center gap-6 md:gap-10">
+				<h2 class="text-[#010101] font-semibold lowercase text-[28px] md:text-[48px] lg:text-[64px] tracking-tight text-center">
+					social moments
+				</h2>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full">
+					{socialPosts.map((post) => (
+						<a href={post.href} target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-2xl hover:opacity-90 transition-opacity">
+							<img
+								src={post.src}
+								alt="adidas FOG II Basketball D Rose social post"
+								class="w-full h-auto object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<section id="fog-drose-final" class="bg-[#f4f4f0] w-full max-w-screen mx-auto h-dvh flex items-end justify-center pb-[20vh] snap-start snap-always px-4 md:px-0">
+			<img
+				src={logoFinal}
+				alt="times10 logo"
+				class="w-[225px] max-h-full object-contain"
+				loading="lazy"
+				crossorigin="anonymous"
+				width="225"
+				height="56"
+			/>
+		</section>
+		<HashScrollInit />
+	</body>
+</html>
