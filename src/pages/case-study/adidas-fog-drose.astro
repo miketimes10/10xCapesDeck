@@ -164,49 +164,19 @@ const socialPosts = [
 		</section>
 
 		<section id="fog-drose-event-grid" class="w-full h-dvh max-h-dvh p-2 md:p-4 lg:p-8 snap-start snap-always flex flex-col overflow-hidden box-border">
-			<div class="flex-1 min-h-0 grid grid-cols-1 gap-2 sm:hidden">
-				{fourColImages.map((src, index) => (
-					index !== 0 && index !== 3 && index !== 4 && (
-						<div class="relative overflow-hidden min-h-0 flex items-center justify-center">
-							<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover" loading="lazy" decoding="async" />
-						</div>
-					)
+			<div class="flex-1 min-h-0 grid grid-cols-1 grid-rows-3 gap-2 sm:hidden">
+				{fourColImages.slice(0, 3).map((src) => (
+					<div class="relative overflow-hidden min-h-0 flex items-center justify-center">
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
+					</div>
 				))}
 			</div>
-			<div class="hidden sm:grid sm:grid-cols-2 sm:grid-rows-3 lg:hidden gap-2 md:gap-4 flex-1 min-h-0">
+			<div class="hidden sm:grid sm:grid-cols-2 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-2 gap-2 md:gap-4 lg:gap-8 flex-1 min-h-0">
 				{fourColImages.map((src) => (
 					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+						<img src={src} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
 					</div>
 				))}
-			</div>
-			<div class="hidden lg:grid lg:grid-cols-[41fr_49fr_55fr_55fr] gap-2 md:gap-4 lg:gap-8 flex-1 min-h-0">
-				<div class="flex flex-col gap-2 md:gap-4 lg:gap-8">
-					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={fourColImages[0]} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-[80%_50%]" loading="eager" decoding="async" />
-					</div>
-				</div>
-				<div class="flex flex-col gap-2 md:gap-4 lg:gap-8">
-					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={fourColImages[1]} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="eager" decoding="async" />
-					</div>
-					<div class="relative overflow-hidden flex items-center justify-center h-auto">
-						<img src={fourColImages[2]} alt="adidas FOG II Basketball D Rose event" class="w-full h-auto object-contain" loading="lazy" decoding="async" />
-					</div>
-				</div>
-				<div class="flex flex-col gap-2 md:gap-4 lg:gap-8">
-					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={fourColImages[3]} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
-					</div>
-					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={fourColImages[4]} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
-					</div>
-				</div>
-				<div class="flex flex-col gap-2 md:gap-4 lg:gap-8">
-					<div class="relative overflow-hidden flex-1 min-h-0 flex items-center justify-center">
-						<img src={fourColImages[5]} alt="adidas FOG II Basketball D Rose event" class="w-full h-full object-cover object-[53%_50%]" loading="lazy" decoding="async" />
-					</div>
-				</div>
 			</div>
 		</section>
 
