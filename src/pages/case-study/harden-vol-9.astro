@@ -7,6 +7,7 @@ import AdidasHardenV9EventGrid from '../../components/sections/DerrickRoseBrandG
 import TwoBlockImageContent from '../../components/sections/TwoBlockGrid/TwoBlockImageContent.astro';
 import HashScrollInit from '../../components/HashScrollInit.astro';
 import Navigation from '../../components/Navigation.astro';
+import NavigationLinks from '../../components/sections/NavigationLinks/NavigationLinks.astro';
 
 // RULE-021: WordPress URL auto-conversion to Bunny CDN
 const fadeSectionBg = bunnyImage('/wp-content/uploads/2025/09/1dfd153532710783b47687564bb21be6d42a8065.jpg', {
@@ -453,6 +454,12 @@ const logoFinal = bunnyImage('/wp-content/uploads/2025/08/Times10-Logo-2025-2.pn
 				height="56"
 			/>
 		</section>
+		<NavigationLinks
+			id="navigation-links"
+			links={[
+				{ href: '/case-study/adidas-fog-drose#fog-drose-case-study-title', label: 'd. rose / fear of god case study' }
+			]}
+		/>
 		<HashScrollInit />
 	</body>
 </html>
