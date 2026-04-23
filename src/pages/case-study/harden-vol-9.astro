@@ -7,6 +7,7 @@ import AdidasHardenV9EventGrid from '../../components/sections/DerrickRoseBrandG
 import TwoBlockImageContent from '../../components/sections/TwoBlockGrid/TwoBlockImageContent.astro';
 import HashScrollInit from '../../components/HashScrollInit.astro';
 import Navigation from '../../components/Navigation.astro';
+import NavigationLinks from '../../components/sections/NavigationLinks/NavigationLinks.astro';
 
 // RULE-021: WordPress URL auto-conversion to Bunny CDN
 const fadeSectionBg = bunnyImage('/wp-content/uploads/2025/09/1dfd153532710783b47687564bb21be6d42a8065.jpg', {
@@ -15,12 +16,6 @@ const fadeSectionBg = bunnyImage('/wp-content/uploads/2025/09/1dfd153532710783b4
 	quality: 85
 });
 
-// Logo for final section (225px width)
-const logoFinal = bunnyImage('/wp-content/uploads/2025/08/Times10-Logo-2025-2.png', {
-	pullZone: 'wordpress',
-	width: 225,
-	quality: 85
-});
 ---
 
 <html lang="en">
@@ -442,17 +437,12 @@ const logoFinal = bunnyImage('/wp-content/uploads/2025/08/Times10-Logo-2025-2.pn
 				}
 			})();
 		</script>
-		<section id="home-final" class="bg-[#f4f4f0] w-full max-w-screen mx-auto h-dvh flex items-end justify-center pb-[20vh] snap-start snap-always px-4 md:px-0">
-			<img
-				src={logoFinal}
-				alt="times10 logo"
-				class="w-[225px] max-h-full object-contain"
-				loading="lazy"
-				crossorigin="anonymous"
-				width="225"
-				height="56"
-			/>
-		</section>
+		<NavigationLinks
+			id="navigation-links"
+			links={[
+				{ href: '/case-study/adidas-fog-drose#fog-drose-case-study-title', label: 'd. rose / fear of god case study' }
+			]}
+		/>
 		<HashScrollInit />
 	</body>
 </html>
