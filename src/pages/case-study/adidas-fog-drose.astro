@@ -1,0 +1,324 @@
+---
+import '../../styles/global.css';
+import { bunnyImage } from '../../lib/bunny-cdn';
+import C4CaseStudy from '../../components/sections/C4CaseStudy/C4CaseStudy.astro';
+import FourColumnGrid from '../../components/sections/FourColumnGrid/FourColumnGrid.astro';
+import ThreeColumnTwoRowGrid from '../../components/sections/ThreeColumnTwoRowGrid/ThreeColumnTwoRowGrid.astro';
+import HashScrollInit from '../../components/HashScrollInit.astro';
+import Navigation from '../../components/Navigation.astro';
+
+const heroBg = '/images/case-studies/drosefog/bg-2.jpg';
+const logoFinal = bunnyImage('/wp-content/uploads/2025/08/Times10-Logo-2025-2.png', {
+	pullZone: 'wordpress',
+	width: 225,
+	quality: 85
+});
+
+const keyInitiatives = [
+	"Creative Event Concepting: Concepted and produced an immersive, museum-style experience celebrating Derrick Rose's legacy with adidas and the launch of the Fear of God Athletics II Basketball D Rose shoe. Blended Chicago culture with Fear of God's minimal, luxury-driven aesthetic through spatial storytelling and design.",
+	"Custom Branded Touchpoints: Designed and executed custom environments including hero shoe displays, archival installations, branded flooring, vinyls, lighting moments, and gifting experiences. Integrated Fear of God, adidas, and Derrick Rose branding throughout the space with a refined, cohesive visual language.",
+	"Celebrity & VIP Management: Coordinated Derrick Rose's arrival, VIP hosting, and managed high-touch interactions. Executed a dedicated photo line and controlled movement for talent, media, and key guests.",
+	"Interactive Fan Experiences: Created immersive moments including mirror photo installations, archival shoe displays, and storytelling touchpoints that invited guest participation and discovery.",
+	"Influencer & Media: Hosted key influencers, media, and cultural tastemakers across the private preview. Supported organic content creation and press moments tied to the launch.",
+	"On-Site Content Capture: Captured high-quality photography and social content across talent, product, environment, and guest experience for post-event storytelling and press."
+];
+
+const socialPosts = [
+	{ src: '/images/case-studies/drosefog/Pasted Graphic.png', href: 'https://www.instagram.com/p/DSBFeSoAf9D/?hl=en&img_index=1' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 1.png', href: 'https://www.instagram.com/p/DR44Xu-Ecsr/?utm_source=ig_web_copy_link&img_index=1' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 3.png', href: 'https://www.instagram.com/p/DSBFeSoAf9D/?hl=en&img_index=2' },
+	{ src: '/images/case-studies/drosefog/Pasted Graphic 4.png', href: 'https://www.instagram.com/p/DSBGxTJgVk1/?igsh=NTc4MTIwNjQ2YQ==&img_index=1' }
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Adidas FOG II Basketball D Rose - Case Study | times10</title>
+	</head>
+	<body class="font-sans overflow-x-hidden bg-[#fdfffd]">
+		<Navigation />
+
+		<section
+			id="fog-drose-case-study-title"
+			class="w-full h-dvh snap-start snap-always bg-no-repeat flex items-center justify-center relative bg-black"
+			style={`background-image: url('${heroBg}'); background-position: center center; background-size: cover;`}
+		>
+			<div
+				id="fog-drose-case-study-title-overlay"
+				class="absolute inset-0 bg-black transition-opacity duration-1000 ease-in-out"
+			></div>
+			<div class="relative z-10 flex flex-col items-center justify-center text-center px-4">
+				<h1 class="text-white font-black lowercase tracking-tight leading-[0.95] text-[40px] md:text-[80px] lg:text-[120px]">
+					adidas fog ii<br />basketball d rose
+				</h1>
+				<p class="text-white/80 lowercase tracking-wide mt-6 text-[14px] md:text-[20px]">
+					creative • production • event management
+				</p>
+			</div>
+		</section>
+
+		<script>
+			(function() {
+				const overlay = document.getElementById('fog-drose-case-study-title-overlay');
+				if (!overlay) return;
+
+				const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+				if (prefersReducedMotion) {
+					overlay.style.opacity = '0';
+					return;
+				}
+
+				const section = document.getElementById('fog-drose-case-study-title');
+				if (!section) return;
+
+				const observer = new IntersectionObserver((entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							overlay.style.opacity = '0';
+						} else {
+							overlay.style.opacity = '1';
+						}
+					});
+				}, { threshold: 0.1, rootMargin: '0px' });
+
+				observer.observe(section);
+			})();
+		</script>
+
+		<C4CaseStudy
+			id="fog-drose-case-study"
+			image={{
+				src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-10.jpg',
+				alt: 'adidas FOG II Basketball D Rose launch event',
+				priority: true,
+				width: 1200,
+				quality: 85
+			}}
+			challenge="Launch the Fear of God Athletics II Basketball D Rose in a way that honored Derrick Rose's legacy, resonated with Chicago culture, and aligned with Fear of God's refined, minimal aesthetic, while cutting through a crowded basketball and sneaker landscape."
+			whatWeDid="Designed and executed a full event featuring a museum-style experience celebrating Derrick Rose's legacy with adidas and the launch of the Fear of God Athletics II Basketball D Rose shoe. Blended Chicago culture with Fear of God's minimal, luxury-driven aesthetic through spatial storytelling and design."
+			keyInitiatives={keyInitiatives}
+		/>
+
+		<FourColumnGrid
+			id="fog-drose-event-grid"
+			images={[
+				{
+					src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-43.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					priority: true,
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-Step&Repeat-120425-49.jpg',
+					alt: 'adidas FOG II Basketball D Rose step and repeat',
+					priority: true,
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-10 (1).jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					priority: false,
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-120425-3.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					priority: false,
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-47.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					priority: false,
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-120425-14.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					priority: false,
+					width: 1200,
+					quality: 85
+				}
+			]}
+		/>
+
+		<ThreeColumnTwoRowGrid
+			id="fog-drose-event-images"
+			images={[
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-120425-16.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-3.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/fog-1.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-120425-6.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/adidas-FOG-DRose-120425-8.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/images/case-studies/drosefog/FOG-ROSE-EVENT-10.jpg',
+					alt: 'adidas FOG II Basketball D Rose event',
+					width: 1200,
+					quality: 85
+				}
+			]}
+		/>
+
+		<section id="fog-drose-social" class="w-full h-dvh max-h-dvh snap-start snap-always bg-[#f4f4f0] flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden">
+			<div class="w-full max-w-[1440px] flex flex-col items-center justify-center gap-6 md:gap-10">
+				<h2 class="text-[#010101] font-semibold lowercase text-[28px] md:text-[48px] lg:text-[64px] tracking-tight text-center">
+					social moments
+				</h2>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 w-full">
+					{socialPosts.map((post) => (
+						<a href={post.href} target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-2xl hover:opacity-90 transition-opacity">
+							<img
+								src={post.src}
+								alt="adidas FOG II Basketball D Rose social post"
+								class="w-full h-auto object-cover"
+								loading="lazy"
+								decoding="async"
+							/>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<script>
+			(function() {
+				const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+				if (!isMobile) return;
+
+				const initializedSections = new WeakSet();
+
+				function initCaseStudyButtons() {
+					const sections = document.querySelectorAll('section');
+					sections.forEach((section) => {
+						const mobileLayout = section.querySelector('.mobile-layout');
+						if (!mobileLayout) return;
+						if (initializedSections.has(section)) return;
+						initializedSections.add(section);
+
+						const tabButtons = section.querySelectorAll('.tab-button');
+						const tabContents = section.querySelectorAll('.tab-content');
+						const contentContainer = section.querySelector('.tab-content-container');
+						const contentCard = section.querySelector('.content-card');
+						const tabNav = section.querySelector('.content-card > div:first-child');
+						if (!contentCard || !contentContainer) return;
+
+						const expandCard = () => {
+							if (mobileLayout) mobileLayout.classList.add('expanded');
+							if (contentCard) contentCard.classList.add('expanded');
+							if (contentContainer) contentContainer.classList.add('has-content');
+						};
+						const collapseCard = () => {
+							if (mobileLayout) mobileLayout.classList.remove('expanded');
+							if (contentCard) contentCard.classList.remove('expanded');
+							if (contentContainer) contentContainer.classList.remove('has-content');
+						};
+						const isExpanded = () => contentCard.classList.contains('expanded');
+
+						if (tabButtons.length > 0) {
+							tabButtons.forEach((button) => {
+								const handleInteraction = (e: Event) => {
+									e.preventDefault();
+									e.stopPropagation();
+									const targetTab = button.getAttribute('data-tab');
+									if (!targetTab) return;
+									if (!isExpanded()) expandCard();
+									if (tabContents.length > 0) {
+										tabButtons.forEach((btn) => btn.classList.remove('active'));
+										button.classList.add('active');
+										tabContents.forEach((content) => {
+											content.classList.remove('active');
+											if (content instanceof HTMLElement && content.id === `${targetTab}-content`) {
+												content.classList.add('active');
+											}
+										});
+									}
+								};
+								button.addEventListener('click', handleInteraction, { passive: false });
+								button.addEventListener('touchstart', handleInteraction, { passive: false });
+							});
+						}
+
+						if (tabNav) {
+							const handleNavClick = (e: Event) => {
+								if (e.target instanceof HTMLElement && e.target.classList.contains('tab-button')) return;
+								if (!isExpanded()) expandCard();
+							};
+							tabNav.addEventListener('click', handleNavClick);
+							tabNav.addEventListener('touchstart', handleNavClick);
+						}
+
+						const hasWhatWeDid = section.querySelector('#overview-content') !== null;
+						if (!tabButtons.length && !hasWhatWeDid) {
+							const cardHeader = section.querySelector('.content-card > div:first-child');
+							if (cardHeader instanceof HTMLElement) {
+								cardHeader.style.cursor = 'pointer';
+								const handleHeaderClick = () => { if (!isExpanded()) expandCard(); };
+								cardHeader.addEventListener('click', handleHeaderClick);
+								cardHeader.addEventListener('touchstart', handleHeaderClick);
+							}
+						}
+
+						const handleCardClick = (e: Event) => {
+							if (e.target === contentCard && isExpanded()) collapseCard();
+						};
+						contentCard.addEventListener('click', handleCardClick);
+						contentCard.addEventListener('touchstart', handleCardClick);
+					});
+				}
+
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', initCaseStudyButtons);
+				} else {
+					initCaseStudyButtons();
+				}
+			})();
+		</script>
+
+		<section id="fog-drose-final" class="bg-[#f4f4f0] w-full max-w-screen mx-auto h-dvh flex items-end justify-center pb-[20vh] snap-start snap-always px-4 md:px-0">
+			<img
+				src={logoFinal}
+				alt="times10 logo"
+				class="w-[225px] max-h-full object-contain"
+				loading="lazy"
+				crossorigin="anonymous"
+				width="225"
+				height="56"
+			/>
+		</section>
+		<HashScrollInit />
+	</body>
+</html>
