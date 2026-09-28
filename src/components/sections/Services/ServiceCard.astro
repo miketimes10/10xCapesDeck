@@ -6,10 +6,11 @@ interface Props {
 	tags: string[];
 	backgroundImage?: string;
 	backgroundPosition?: string;
+	backgroundSize?: string;
 	href?: string;
 }
 
-const { title, tags, backgroundImage, backgroundPosition = 'center', href } = Astro.props;
+const { title, tags, backgroundImage, backgroundPosition = 'center', backgroundSize = 'cover', href } = Astro.props;
 
 const pullZone = backgroundImage?.startsWith('/wp-content/') ? 'wordpress' : 'storage';
 
@@ -19,7 +20,7 @@ const backgroundUrl = backgroundImage?.startsWith('/images/')
 	: backgroundImage && bunnyImage(backgroundImage, { pullZone, width: 1920, quality: 85 });
 
 const backgroundStyle = backgroundUrl
-	? `background-image: url('${backgroundUrl}'); background-size: cover; background-position: ${backgroundPosition}; background-repeat: no-repeat;`
+	? `background-image: url('${backgroundUrl}'); background-size: ${backgroundSize}; background-position: ${backgroundPosition}; background-repeat: no-repeat;`
 	: '';
 ---
 
