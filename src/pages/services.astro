@@ -13,6 +13,7 @@ import TradeshowBooth from '../components/sections/TwoBlockGrid/TradeshowBooth.a
 import InfluencerMarketing from '../components/sections/InfluencerMarketing/InfluencerMarketing.astro';
 import InfluencerMarketing2 from '../components/sections/InfluencerMarketing/InfluencerMarketing2.astro';
 import Website from '../components/sections/Website/Website.astro';
+import WebsiteShowcase from '../components/sections/Website/WebsiteShowcase.astro';
 import NavigationLinks from '../components/sections/NavigationLinks/NavigationLinks.astro';
 import HashScrollInit from '../components/HashScrollInit.astro';
 import Navigation from '../components/Navigation.astro';
@@ -265,10 +266,9 @@ const strategyCardBg = bunnyImage('/wp-content/uploads/2025/09/iyf-hero.jpg', {
 					quality: 85
 				},
 				{
-					src: '/wp-content/uploads/2025/02/060523-GoldGrove-62.jpeg',
-					alt: 'Beauty',
+					src: '/images/services/sacheu-lip-liner-beauty.jpg',
+					alt: 'Sacheu Lip Liner Stay-N',
 					label: 'beauty',
-					pullZone: 'wordpress',
 					width: 1200,
 					quality: 85
 				},
@@ -328,24 +328,24 @@ const strategyCardBg = bunnyImage('/wp-content/uploads/2025/09/iyf-hero.jpg', {
 				{
 					src: '/wp-content/uploads/2025/02/website-banner_black-background-1.mp4',
 					alt: 'Website Banner',
-					label: 'booth',
-					pullZone: 'wordpress',
-					type: 'video'
-				},
-				{
-					src: '/wp-content/uploads/2025/03/Both-Render-5.5_0004.jpg',
-					alt: '3D Render',
 					label: '3d render',
 					pullZone: 'wordpress',
+					type: 'video',
+					fit: 'contain'
+				},
+				{
+					src: '/images/services/harden-v10-booth-render.jpg',
+					alt: 'adidas Harden V10 booth 3D render',
+					label: 'booth',
 					width: 1200,
 					quality: 85,
 					type: 'image'
 				},
 				{
-					src: '/wp-content/uploads/2025/03/Ryu-Pointing-Animation-2.mp4',
-					alt: 'Ryu Animation',
+					src: '/videos/vegas-cashwrap-animation.mp4',
+					alt: 'Shoe assembly 3D animation',
 					label: 'animation',
-					pullZone: 'wordpress',
+					mobilePosition: '50% 65%',
 					type: 'video'
 				}
 			]}
@@ -485,6 +485,44 @@ const strategyCardBg = bunnyImage('/wp-content/uploads/2025/09/iyf-hero.jpg', {
 			title="tradeshow booth"
 			col1={[
 				{
+					src: '/images/tradeshow/harden-v10-car.jpg',
+					alt: 'adidas Harden V10 booth at Fanatics Fest'
+				},
+				{
+					src: '/images/tradeshow/harden-v10-history-wall.jpg',
+					alt: 'adidas Harden signature shoe history wall at Fanatics Fest'
+				}
+			]}
+			mobileTop={{
+				src: '/images/tradeshow/harden-v10-car.jpg',
+				alt: 'adidas Harden V10 booth at Fanatics Fest'
+			}}
+			col2={{
+					src: '/images/tradeshow/harden-v10-counter.jpg',
+					alt: 'adidas Harden V10 booth sales counter at Fanatics Fest'
+				}}
+			col3={[
+				{
+					src: '/wp-content/uploads/2025/04/Clew-Pouches_Champs_All-JPEG-54-1_1.jpg',
+					alt: 'Tradeshow Booth',
+					pullZone: 'wordpress',
+					width: 1200,
+					quality: 85
+				},
+				{
+					src: '/wp-content/uploads/2025/04/Clew-Pouches_Champs_All-JPEG-50_1.jpg',
+					alt: 'Tradeshow Booth',
+					pullZone: 'wordpress',
+					width: 1200,
+					quality: 85
+				}
+			]}
+		/>
+		<TradeshowBooth 
+			id="activations-4"
+			title="tradeshow booth"
+			col1={[
+				{
 					src: '/wp-content/uploads/2025/08/pv-177.jpg',
 					alt: 'Tradeshow Booth',
 					pullZone: 'wordpress',
@@ -500,26 +538,24 @@ const strategyCardBg = bunnyImage('/wp-content/uploads/2025/09/iyf-hero.jpg', {
 				}
 			]}
 			col2={{
-				src: '/wp-content/uploads/2025/08/Attomax-clean-1-1.jpg',
-				alt: 'Tradeshow Booth',
-				pullZone: 'wordpress',
-				width: 1200,
-				quality: 85
+					src: '/wp-content/uploads/2025/08/Attomax-clean-1-1.jpg',
+					alt: 'Tradeshow Booth',
+					pullZone: 'wordpress',
+					width: 1200,
+					quality: 85
+				}}
+			mobileBottom={{
+				src: '/images/tradeshow/poundcakes-booth-1.jpg',
+				alt: 'Pound Cakes booth'
 			}}
 			col3={[
 				{
-					src: '/wp-content/uploads/2025/04/Clew-Pouches_Champs_All-JPEG-54-1_1.jpg',
-					alt: 'Tradeshow Booth',
-					pullZone: 'wordpress',
-					width: 1200,
-					quality: 85
+					src: '/images/tradeshow/poundcakes-booth-2.jpg',
+					alt: 'Pound Cakes booth'
 				},
 				{
-					src: '/wp-content/uploads/2025/04/Clew-Pouches_Champs_All-JPEG-50_1.jpg',
-					alt: 'Tradeshow Booth',
-					pullZone: 'wordpress',
-					width: 1200,
-					quality: 85
+					src: '/images/tradeshow/poundcakes-booth-1.jpg',
+					alt: 'Pound Cakes booth'
 				}
 			]}
 		/>
@@ -568,6 +604,13 @@ const strategyCardBg = bunnyImage('/wp-content/uploads/2025/09/iyf-hero.jpg', {
 				pullZone: 'wordpress',
 				priority: true
 			}}
+		/>
+		<WebsiteShowcase
+			id="website-2"
+			sites={[
+				{ name: 'Hydraburst', desktop: '/images/websites/hydraburst-desktop.jpg' },
+				{ name: 'Sacheu', desktop: '/images/websites/sacheu-desktop.jpg' }
+			]}
 		/>
 		<NavigationLinks
 			id="navigation-links"

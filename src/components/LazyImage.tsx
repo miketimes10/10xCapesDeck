@@ -91,8 +91,10 @@ export function LazyImage({
 		pullZone,
 	};
 
-	const fullImageUrl = bunnyImage(src, imageOptions);
-	const thumbnailUrl = blurPlaceholder ? bunnyThumbnail(src, width ? Math.min(width, 50) : 50, pullZone) : fullImageUrl;
+	// Files in public/images are served locally, not from the CDN
+	const isLocal = src.startsWith('/images/');
+	const fullImageUrl = isLocal ? src : bunnyImage(src, imageOptions);
+	const thumbnailUrl = blurPlaceholder && !isLocal ? bunnyThumbnail(src, width ? Math.min(width, 50) : 50, pullZone) : fullImageUrl;
 
 	return (
 		<div ref={containerRef} className={`relative overflow-hidden ${className}`}>

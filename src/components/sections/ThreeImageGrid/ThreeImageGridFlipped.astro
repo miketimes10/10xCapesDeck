@@ -13,6 +13,8 @@ export interface Props {
 		width?: number;
 		quality?: number;
 		type?: 'image' | 'video'; // Defaults to 'image'
+		fit?: 'cover' | 'contain'; // Defaults to 'cover'; 'contain' shows the whole frame on black
+		mobilePosition?: string; // object-position on phones, e.g. '50% 65%' to keep key content in frame
 	}>;
 	id?: string;
 }
@@ -25,6 +27,12 @@ if (images.length !== 3) {
 }
 
 const [topLeftImage, bottomLeftImage, rightImage] = images;
+
+const mediaClass = (item: (typeof images)[number]) =>
+	item.fit === 'contain' ? 'w-full h-full object-contain' : 'w-full h-full object-cover';
+const panelBg = (item: (typeof images)[number]) => (item.fit === 'contain' ? 'bg-black' : '');
+const panelPos = (item: (typeof images)[number]) =>
+	item.mobilePosition ? { class: 'mobile-pos', style: `--mobile-object-position: ${item.mobilePosition}` } : {};
 ---
 
 <section id={id} class="w-full h-dvh max-h-dvh p-2 md:p-4 lg:p-8 snap-start snap-always flex flex-col overflow-hidden box-border">
@@ -32,7 +40,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 		{/* Left Side - Two stacked panels */}
 		<div class="flex flex-col gap-2 md:gap-4 lg:gap-8 min-h-0">
 			{/* Top Left Panel */}
-			<div class="relative flex-1 min-h-0 overflow-hidden">
+			<div class:list={['relative flex-1 min-h-0 overflow-hidden', panelBg(topLeftImage), panelPos(topLeftImage).class]} style={panelPos(topLeftImage).style}>
 				{topLeftImage.type === 'video' ? (
 					<LazyVideo
 						client:load
@@ -43,7 +51,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 						muted
 						loop
 						playsInline
-						className="w-full h-full object-cover"
+						className={mediaClass(topLeftImage)}
 					/>
 				) : (
 					<LazyImage
@@ -54,7 +62,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 						priority={topLeftImage.priority || false}
 						width={topLeftImage.width || 1200}
 						quality={topLeftImage.quality || 85}
-						className="w-full h-full object-cover"
+						className={mediaClass(topLeftImage)}
 					/>
 				)}
 				<div class="absolute bottom-0 left-0 px-3 md:px-4 lg:px-6 py-1.5 md:py-2 lg:py-3">
@@ -65,7 +73,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 			</div>
 
 			{/* Bottom Left Panel */}
-			<div class="relative flex-1 min-h-0 overflow-hidden">
+			<div class:list={['relative flex-1 min-h-0 overflow-hidden', panelBg(bottomLeftImage), panelPos(bottomLeftImage).class]} style={panelPos(bottomLeftImage).style}>
 				{bottomLeftImage.type === 'video' ? (
 					<LazyVideo
 						client:load
@@ -76,7 +84,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 						muted
 						loop
 						playsInline
-						className="w-full h-full object-cover"
+						className={mediaClass(bottomLeftImage)}
 					/>
 				) : (
 					<LazyImage
@@ -87,7 +95,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 						priority={bottomLeftImage.priority || false}
 						width={bottomLeftImage.width || 1200}
 						quality={bottomLeftImage.quality || 85}
-						className="w-full h-full object-cover"
+						className={mediaClass(bottomLeftImage)}
 					/>
 				)}
 				<div class="absolute bottom-0 left-0 px-3 md:px-4 lg:px-6 py-1.5 md:py-2 lg:py-3">
@@ -99,7 +107,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 		</div>
 
 		{/* Right Panel - Full height on desktop, 1/3 height on mobile */}
-		<div class="relative w-full min-h-0 overflow-hidden justify-self-start xl:justify-self-end">
+		<div class:list={['relative w-full min-h-0 overflow-hidden justify-self-start xl:justify-self-end', panelBg(rightImage), panelPos(rightImage).class]} style={panelPos(rightImage).style}>
 			{rightImage.type === 'video' ? (
 				<LazyVideo
 					client:load
@@ -110,7 +118,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 					muted
 					loop
 					playsInline
-					className="w-full h-full object-cover"
+					className={mediaClass(rightImage)}
 				/>
 			) : (
 				<LazyImage
@@ -121,7 +129,7 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 					priority={rightImage.priority || false}
 					width={rightImage.width || 1200}
 					quality={rightImage.quality || 85}
-					className="w-full h-full object-cover"
+					className={mediaClass(rightImage)}
 				/>
 			)}
 			<div class="absolute bottom-0 left-0 px-3 md:px-4 lg:px-4 py-1.5 md:py-2 lg:py-3">
@@ -132,3 +140,13 @@ const [topLeftImage, bottomLeftImage, rightImage] = images;
 		</div>
 	</div>
 </section>
+
+<style>
+	/* Phones: shift the crop so the important part of a tall frame stays visible */
+	@media (max-width: 767px) {
+		.mobile-pos :global(video),
+		.mobile-pos :global(img) {
+			object-position: var(--mobile-object-position);
+		}
+	}
+</style>

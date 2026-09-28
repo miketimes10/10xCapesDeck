@@ -43,19 +43,22 @@ export function LazyVideo({
 	const videoRef = useRef<HTMLVideoElement>(null);
 	const savedTimeRef = useRef<number>(0);
 
+	// Files in public/videos are served locally, not from the CDN
+	const isLocal = (path: string) => path.startsWith('/videos/');
+
 	// Determine final URLs
-	const videoUrl = videoId 
-		? bunnyVideoUrl(videoId) 
-		: (src 
-			? (src.startsWith('http://') || src.startsWith('https://') 
-				? src 
+	const videoUrl = videoId
+		? bunnyVideoUrl(videoId)
+		: (src
+			? (src.startsWith('http://') || src.startsWith('https://') || isLocal(src)
+				? src
 				: bunnyVideoFile(src, pullZone))
 			: '');
-	
+
 	// RULE-015: Use Bunny Optimizer for dynamic resizing/format conversion
-	const posterUrl = videoId 
-		? bunnyVideoPoster(videoId) 
-		: (customPoster ? (customPoster.startsWith('http') ? customPoster : bunnyImage(customPoster, { quality: 85 })) : undefined);
+	const posterUrl = videoId
+		? bunnyVideoPoster(videoId)
+		: (customPoster ? (customPoster.startsWith('http') || isLocal(customPoster) ? customPoster : bunnyImage(customPoster, { quality: 85 })) : undefined);
 
 	useEffect(() => {
 		// RULE-008: Respect prefers-reduced-motion

@@ -5,15 +5,21 @@ interface Props {
 	title: string;
 	tags: string[];
 	backgroundImage?: string;
+	backgroundPosition?: string;
 	href?: string;
 }
 
-const { title, tags, backgroundImage, href } = Astro.props;
+const { title, tags, backgroundImage, backgroundPosition = 'center', href } = Astro.props;
 
 const pullZone = backgroundImage?.startsWith('/wp-content/') ? 'wordpress' : 'storage';
 
-const backgroundStyle = backgroundImage
-	? `background-image: url('${bunnyImage(backgroundImage, { pullZone, width: 1920, quality: 85 })}'); background-size: cover; background-position: center; background-repeat: no-repeat;`
+// Files in public/images are served locally, not from the CDN
+const backgroundUrl = backgroundImage?.startsWith('/images/')
+	? backgroundImage
+	: backgroundImage && bunnyImage(backgroundImage, { pullZone, width: 1920, quality: 85 });
+
+const backgroundStyle = backgroundUrl
+	? `background-image: url('${backgroundUrl}'); background-size: cover; background-position: ${backgroundPosition}; background-repeat: no-repeat;`
 	: '';
 ---
 

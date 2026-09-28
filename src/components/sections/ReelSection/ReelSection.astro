@@ -15,10 +15,13 @@ export interface Props {
 
 const { video, className = '', id } = Astro.props;
 
+// Files in public/videos are served locally, not from the CDN
+const isLocal = (path: string) => path.startsWith('/videos/');
+
 // Generate poster URL if provided
-const posterUrl = video.poster 
-	? (video.poster.startsWith('http') 
-		? video.poster 
+const posterUrl = video.poster
+	? (video.poster.startsWith('http') || isLocal(video.poster)
+		? video.poster
 		: bunnyImage(video.poster, {
 			pullZone: video.pullZone || 'storage',
 			width: 1920,
@@ -27,7 +30,7 @@ const posterUrl = video.poster
 	: undefined;
 
 // Generate video URL
-const videoSrc = video.src.startsWith('http') 
+const videoSrc = video.src.startsWith('http') || isLocal(video.src)
 	? video.src 
 	: bunnyVideoFile(video.src, video.pullZone || 'storage');
 ---
